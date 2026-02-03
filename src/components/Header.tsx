@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import logo from "@/assets/neokayu-logo.png";
-import CartDropdown from "./CartDropdown";
+import CartModal from "./CartModal";
+
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -43,7 +44,8 @@ const Header = () => {
           {/* Right Side - Cart & CTA */}
           <div className="flex items-center gap-4">
             {/* Cart Dropdown */}
-            <CartDropdown />
+            <CartModal />
+
 
             {/* WhatsApp CTA - Desktop */}
             <a
