@@ -125,7 +125,7 @@ const Contact = () => {
                   <Facebook className="w-5 h-5" />
                 </a>
                 <a
-                  href="https://instagram.com/NeoHayu"
+                  href="https://www.instagram.com/neokayu"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 rounded-full bg-sage/20 flex items-center justify-center hover:bg-gold hover:text-cream text-herbal transition-all duration-300"
