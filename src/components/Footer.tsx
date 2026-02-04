@@ -87,22 +87,23 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-cream/10">
-        <div className="container-custom py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-cream/50 text-sm">
-              © {currentYear} Sri Padmanabha Life Sciences. All rights reserved.
-            </p>
-            {/* <div className="flex items-center gap-6 text-sm">
-              <a href="#" className="text-cream/50 hover:text-gold transition-colors duration-300">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-cream/50 hover:text-gold transition-colors duration-300">
-                Terms of Service
-              </a>
-            </div> */}
-          </div>
-        </div>
-      </div>
+  <div className="container-custom py-6 px-5 sm:px-6 md:px-8">
+    <div className="flex flex-col md:flex-row justify-between items-center gap-3 text-center md:text-left">
+      
+      <p className="text-cream/50 text-sm">
+        © {currentYear} Sri Padmanabha Life Sciences. All rights reserved.
+      </p>
+
+      <p className="text-cream/50 text-sm flex items-center gap-1">
+        Made with 
+        <span className="text-gold text-base">♥</span>
+        by <span className="text-gold font-medium">StaffArc</span>
+      </p>
+
+    </div>
+  </div>
+</div>
+
     </footer>
   );
 };
