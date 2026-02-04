@@ -4,11 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ================= BASE THEME VARIABLES ================= */
 @layer base {
   :root {
-    --background: 40 25% 96%;
-    --foreground: 100 23% 12%;
+    /* NeoKayu Brand Colors */
+    --background: 40 25% 96%; /* #F6F4EF - Soft Warm Background */
+    --foreground: 100 23% 12%; /* #1A2517 - Deep Herbal Green */
 
     --card: 40 20% 98%;
     --card-foreground: 100 23% 12%;
@@ -16,19 +16,19 @@
     --popover: 40 25% 96%;
     --popover-foreground: 100 23% 12%;
 
-    --primary: 100 23% 12%;
+    --primary: 100 23% 12%; /* Deep Herbal Green */
     --primary-foreground: 40 25% 96%;
 
-    --secondary: 103 23% 71%;
+    --secondary: 103 23% 71%; /* #ACC8A2 - Sage Green */
     --secondary-foreground: 100 23% 12%;
 
     --muted: 40 15% 90%;
     --muted-foreground: 100 10% 40%;
 
-    --accent: 40 45% 54%;
+    --accent: 40 45% 54%; /* #B89B5E - Gold Accent */
     --accent-foreground: 40 25% 96%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 40 20% 85%;
@@ -37,15 +37,80 @@
 
     --radius: 0.75rem;
 
+    /* Custom NeoKayu tokens */
     --sage: 103 23% 71%;
+    --sage-light: 103 25% 85%;
+    --sage-dark: 103 23% 55%;
     --herbal: 100 23% 12%;
+    --herbal-light: 100 20% 25%;
     --gold: 40 45% 54%;
+    --gold-light: 40 50% 70%;
+    --gold-dark: 40 45% 40%;
     --cream: 40 25% 96%;
+    --cream-dark: 40 20% 90%;
 
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(40 25% 96%) 0%, hsl(103 25% 90%) 50%, hsl(40 30% 92%) 100%);
     --gradient-gold: linear-gradient(135deg, hsl(40 45% 54%) 0%, hsl(40 50% 65%) 100%);
+    --gradient-sage: linear-gradient(135deg, hsl(103 23% 71%) 0%, hsl(103 25% 80%) 100%);
     --gradient-herbal: linear-gradient(180deg, hsl(100 23% 12%) 0%, hsl(100 20% 20%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(100 23% 12% / 0.08);
+    --shadow-card: 0 8px 30px -8px hsl(100 23% 12% / 0.12);
+    --shadow-gold: 0 4px 20px -4px hsl(40 45% 54% / 0.3);
+
+    --sidebar-background: 40 25% 96%;
+    --sidebar-foreground: 100 23% 12%;
+    --sidebar-primary: 100 23% 12%;
+    --sidebar-primary-foreground: 40 25% 96%;
+    --sidebar-accent: 103 23% 71%;
+    --sidebar-accent-foreground: 100 23% 12%;
+    --sidebar-border: 40 20% 85%;
+    --sidebar-ring: 40 45% 54%;
   }
 
+  .dark {
+    --background: 100 23% 8%;
+    --foreground: 40 25% 96%;
+
+    --card: 100 23% 12%;
+    --card-foreground: 40 25% 96%;
+
+    --popover: 100 23% 12%;
+    --popover-foreground: 40 25% 96%;
+
+    --primary: 103 23% 71%;
+    --primary-foreground: 100 23% 12%;
+
+    --secondary: 100 20% 20%;
+    --secondary-foreground: 40 25% 96%;
+
+    --muted: 100 15% 20%;
+    --muted-foreground: 40 15% 70%;
+
+    --accent: 40 45% 54%;
+    --accent-foreground: 100 23% 12%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 100 15% 25%;
+    --input: 100 15% 25%;
+    --ring: 40 45% 54%;
+
+    --sidebar-background: 100 23% 10%;
+    --sidebar-foreground: 40 25% 96%;
+    --sidebar-primary: 103 23% 71%;
+    --sidebar-primary-foreground: 100 23% 12%;
+    --sidebar-accent: 100 20% 18%;
+    --sidebar-accent-foreground: 40 25% 96%;
+    --sidebar-border: 100 15% 20%;
+    --sidebar-ring: 40 45% 54%;
+  }
+}
+
+@layer base {
   * {
     @apply border-border;
   }
@@ -56,7 +121,6 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -64,23 +128,61 @@
   }
 }
 
-/* ================= COMPONENT STYLES ================= */
 @layer components {
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-gold);
+  }
+
+  .bg-gradient-hero {
+    background-image: var(--gradient-hero);
+  }
+
+  .bg-gradient-herbal {
+    background-image: var(--gradient-herbal);
+  }
+
+  .gold-divider {
+    @apply h-px w-24 mx-auto;
+    background: linear-gradient(90deg, transparent, hsl(var(--gold)), transparent);
+  }
+
+  .gold-divider-left {
+    @apply h-px w-24;
+    background: linear-gradient(90deg, hsl(var(--gold)), transparent);
+  }
+
   .card-premium {
     @apply bg-card rounded-2xl p-6 transition-all duration-300;
-    box-shadow: 0 8px 30px -8px hsl(100 23% 12% / 0.12);
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-premium:hover {
+    @apply -translate-y-1;
+    box-shadow: var(--shadow-gold);
   }
 
   .btn-gold {
-    @apply inline-flex items-center justify-center px-8 py-4 rounded-full font-medium transition-all duration-300 text-white;
+    @apply inline-flex items-center justify-center px-8 py-4 rounded-full font-medium transition-all duration-300;
     background-image: var(--gradient-gold);
-    box-shadow: 0 4px 20px -4px hsl(40 45% 54% / 0.3);
+    color: hsl(var(--cream));
+    box-shadow: var(--shadow-gold);
+  }
+
+  .btn-gold:hover {
+    @apply scale-105;
+    filter: brightness(1.1);
   }
 
   .btn-outline-herbal {
     @apply inline-flex items-center justify-center px-8 py-4 rounded-full font-medium transition-all duration-300 border-2;
     border-color: hsl(var(--herbal));
     color: hsl(var(--herbal));
+  }
+
+  .btn-outline-herbal:hover {
+    background-color: hsl(var(--herbal));
+    color: hsl(var(--cream));
   }
 
   .section-padding {
@@ -92,24 +194,57 @@
   }
 }
 
-/* ================= UTILITIES ================= */
 @layer utilities {
-  .animate-scale-in {
-    animation: scaleIn 0.25s ease-out forwards;
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
   }
 
-  .qty-btn {
-    @apply w-7 h-7 rounded-full border border-border flex items-center justify-center hover:bg-accent transition;
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
   @keyframes scaleIn {
     from {
-      transform: scale(0.95);
       opacity: 0;
+      transform: scale(0.95);
     }
     to {
-      transform: scale(1);
       opacity: 1;
+      transform: scale(1);
     }
+  }
+
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+
+  .texture-herbal {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ACC8A2' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   }
 }
