@@ -222,7 +222,7 @@ const ProductCard = ({ product }: { product: Product }) => {
               Sample
             </span>
           )}
-          <span className="text-2xl font-serif text-gold">₹{selectedPrice?.price}</span>
+          <span className="text-2xl font-sans font-extrabold text-gold">₹{selectedPrice?.price}</span>
         </div>
       </div>
 
