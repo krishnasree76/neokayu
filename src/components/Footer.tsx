@@ -1,5 +1,5 @@
 import { Leaf } from "lucide-react";
-import logo from "../assets/neokayu-logo.png";
+import logo from "../assets/Screenshot_2026-02-03_143625-removebg-preview.png";
 
 
 const Footer = () => {

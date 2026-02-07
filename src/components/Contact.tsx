@@ -32,6 +32,75 @@ const Contact = () => {
             or partnership opportunities.
           </p>
         </div>
+        {/* Doctor Consultation Intro */}
+<div className="p-6 rounded-2xl bg-sage/10">
+  <h3 className="text-xl font-serif text-herbal mb-2">
+    Consult Our Ayurvedic Doctor
+  </h3>
+  <p className="text-herbal-light text-sm mb-6">
+    Share your health concerns with us. Our Ayurvedic doctor will review your case
+    and suggest appropriate traditional remedies and medications.
+  </p>
+
+  {/* Consultation Form */}
+  <form
+    onSubmit={(e) => {
+      e.preventDefault();
+
+      const form = e.currentTarget;
+      const name = form.name.value;
+      const phone = form.phone.value;
+      const concern = form.concern.value;
+
+      const message = encodeURIComponent(
+        `Ayurvedic Consultation Request\n\n` +
+        `Name: ${name}\n` +
+        `Phone: ${phone}\n\n` +
+        `Health Concern:\n${concern}`
+      );
+
+      window.open(
+        `https://wa.me/918618676696?text=${message}`,
+        "_blank"
+      );
+
+      form.reset();
+    }}
+    className="space-y-4"
+  >
+    <input
+      type="text"
+      name="name"
+      required
+      placeholder="Your Full Name"
+      className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-gold"
+    />
+
+    <input
+      type="tel"
+      name="phone"
+      required
+      placeholder="Phone Number"
+      className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-gold"
+    />
+
+    <textarea
+      name="concern"
+      required
+      rows={4}
+      placeholder="Describe your health concern"
+      className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-gold resize-none"
+    />
+
+    <button
+      type="submit"
+      className="w-full py-3 rounded-full bg-gold text-herbal font-medium hover:bg-gold-light transition-colors duration-300"
+    >
+      Send for Doctor Consultation
+    </button>
+  </form>
+</div>
+
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Info */}
@@ -92,6 +161,7 @@ const Contact = () => {
                 </div>
               </div>
             </div>
+            
 
             {/* Business Hours */}
             <div className="p-6 rounded-xl bg-sage/10">
@@ -110,6 +180,7 @@ const Contact = () => {
                 ))}
               </div>
             </div>
+            
 
             {/* Social Links */}
             <div>
@@ -136,6 +207,7 @@ const Contact = () => {
               </div>
             </div>
           </div>
+          
 
           {/* Map & WhatsApp CTA */}
           <div className="space-y-6">
@@ -176,6 +248,7 @@ const Contact = () => {
               </a>
             </div>
           </div>
+          
         </div>
       </div>
     </section>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
-import logo from "@/assets/neokayu-logo.png";
+import logo from "@/assets/Screenshot_2026-02-03_143625-removebg-preview.png";
 import CartDrawer from "@/components/CartDrawer";
 
 
@@ -8,12 +8,14 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
-    { href: "#home", label: "Home" },
-    { href: "#heritage", label: "Our Heritage" },
-    { href: "#services", label: "Services" },
-    { href: "#products", label: "Products" },
-    { href: "#contact", label: "Contact" },
-  ];
+  { href: "#home", label: "Home" },
+  { href: "#heritage", label: "Our Heritage" },
+  { href: "#services", label: "Services" },
+  { href: "#products", label: "Products" },
+  { href: "#contact", label: "Contact" },
+  { href: "#contact", label: "Consult" }, // 👈 added
+];
+
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-cream/95 backdrop-blur-sm border-b border-sage/20">

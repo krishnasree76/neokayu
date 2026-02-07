@@ -44,7 +44,7 @@ const products: Product[] = [
   },
   {
     id: 2,
-    name: "NeoKayu Kayashuddi Hair Cleanser",
+    name: "Neokayu Kayashuddi Hair and body scrub",
     benefit: "Natural hair washer & deep cleanser",
     image: hairCleanserImg,
     prices: [{ size: "100 gm", price: 185, type: "selling" }],
